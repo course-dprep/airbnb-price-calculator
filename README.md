@@ -9,8 +9,10 @@ Investors looking for a second and potentially passive source of income may cons
 ## Research method
 
 The estimating tool will be accessible to everyone on a website. The website visitor must fill out specific information about their accommodation. The data used to determine the estimated yearly income are:
-average daily price for different listings 
-monthly average occupancy rate for each city taken into account
+
+- average daily price for different listings 
+- monthly average occupancy rate for each city taken into account
+
 The average daily price considered will be based on competitors that have similar characteristics in terms of: 
 demographics (neighborhood, nearby facilities) 
 accommodation (e.g. rating, amenities, type of accommodation) 
