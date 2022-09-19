@@ -17,7 +17,8 @@ The estimating tool will be accessible to everyone on a website. The website vis
 
 The average daily price considered will be based on competitors that have similar characteristics in terms of: 
 - demographics (neighborhood, nearby facilities) 
-- accommodation (e.g. rating, amenities, type of accommodation) 
+- accommodation (e.g. rating, amenities, type of accommodation)
+
 To collect the required data a web scraper for InsideAirbnb.com was built.
 
 ## Relevance
