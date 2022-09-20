@@ -45,6 +45,8 @@ instant_bookable
 
 
 Deleted:
+|Variable                        |Description                                 |
+|--------------------------------|--------------------------------------------|
 |host_since                      |Date the host was created                   |
 |host_response_time              |Time after which a host responds            |
 |neighbourhood                   |Neighbourhood of the listing                |
