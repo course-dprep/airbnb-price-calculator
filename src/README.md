@@ -6,10 +6,10 @@ The datasets that were downloaded from Inside Airbnb contain 31 variables that w
 
 |Variable                        |Description                                 |Relevance                                   |
 |--------------------------------|--------------------------------------------|--------------------------------------------|
-|id                              |Unique identifier of listing                |In order to distinguish the listing         |
-|host_response_rate              |Rate at which a host responds               |Faster response 8|
-|host_is_superhost               |Whether host is superhost                   ||
-|host_identity_verified          |Whether identity of host is known           ||
+|id                              |Unique identifier of the listing            |In order to distinguish the listing         |
+|host_response_rate              |Rate at which a host responds               |Faster response results in higher satisfaction rate |
+|host_is_superhost               |Whether host is superhost                   |                       |
+|host_identity_verified          |Whether identity of host is known           |Increases trust of customer                         |
 |neighbourhood                   |Neighbourhood of the listing                ||
 |neighbourhood_cleansed          |Detailer neighbourhood of listing           ||
 |property_type                   |Self described type of property             ||
@@ -34,4 +34,5 @@ The datasets that were downloaded from Inside Airbnb contain 31 variables that w
 |city                            |City that a listing is situated             ||
 |country                         |Country in which a listing is situated      ||
 
+(Descriptions retrevied from: https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit?usp=sharing)
 
