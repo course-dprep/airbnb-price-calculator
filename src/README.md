@@ -33,7 +33,7 @@ For further preparation of the data we used variables which are relevant for our
 |city                            |City that a listing is situated                                                                 |
 |country                         |Country in which a listing is situated                                                          |
 
-(Descriptions retrevied from: https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit?usp=sharing)
+(Descriptions retrevied from: [Data Dictionary](https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit?usp=sharing))
 
 
 To discuss:
