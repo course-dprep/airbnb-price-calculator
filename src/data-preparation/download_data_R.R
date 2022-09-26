@@ -17,7 +17,18 @@ Airbnb_listing_urls$Country <- tmp
 #Filter for countries in EU
 listing_EU <- Airbnb_listing_urls %>% filter(Country %in% countries_in_EU)
 
-listing_EU[,3]
+## some cities give an error because of their spelling:
+
+#Malaga 
+listing_EU$Link[listing_EU$Link=='http://data.insideairbnb.com/spain/andalucía/malaga/2022-06-29/data/listings.csv.gz'] <- 'http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2022-06-29/data/listings.csv.gz'
+#Pays Basque
+listing_EU$Link[listing_EU$Link=='http://data.insideairbnb.com/france/pyrénées-atlantiques/pays-basque/2022-06-10/data/listings.csv.gz'] <- 'http://data.insideairbnb.com/france/pyr%C3%A9n%C3%A9es-atlantiques/pays-basque/2022-06-10/data/listings.csv.gz'
+#Sevilla
+listing_EU$Link[listing_EU$Link=='http://data.insideairbnb.com/spain/andalucía/sevilla/2022-06-27/data/listings.csv.gz'] <- 'http://data.insideairbnb.com/spain/andaluc%C3%ADa/sevilla/2022-06-27/data/listings.csv.gz'
+#stockholm
+listing_EU$Link[listing_EU$Link=='http://data.insideairbnb.com/sweden/stockholms-län/stockholm/2022-06-25/data/listings.csv.gz'] <- 'http://data.insideairbnb.com/sweden/stockholms-l%C3%A4n/stockholm/2022-06-25/data/listings.csv.gz'
+#Trentino
+listing_EU$Link[listing_EU$Link=='http://data.insideairbnb.com/italy/trentino-alto-adige-südtirol/trentino/2022-06-29/data/listings.csv.gz'] <- 'http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2022-06-29/data/listings.csv.gz'
 
 # making a loop to download all the data links of the EU cities
 for (i in 1:42) { 
