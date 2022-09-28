@@ -1,6 +1,6 @@
 # Collecting the Data
 
-The data collection consists of 24 variables. 
+The data collection consists of 23 variables. 
 
 For further preparation of the data we used variables which are relevant for our model, these variables are shown in the table below. 
 
@@ -29,7 +29,6 @@ For further preparation of the data we used variables which are relevant for our
 |review_scores_communication     |Review score of the communication by host                                                       |
 |review_scores_location          |Review score of the property location                                                           |
 |review_scores_value             |Review score of value of the listing                                                            |
-|reviews_per_month               |Amount of reviews a listing has per month                                                       |
 |instant_bookable                |Whether the guest can automatically book the listing without the host requiring to accept       |                                        
 
 (Descriptions retrevied from: [Data Dictionary](https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit?usp=sharing))
