@@ -47,7 +47,7 @@ The different datafiles of the 23 cities were merged into one dataframe consisti
 
 # 2. Data cleaning
 ## 2.1 Filter the variables used in the analysis
-For the first step it was decided to only use variables usefull for the analysis. The variable list is available [here](https://github.com/course-dprep/team-assignment-team-4/tree/data_exploration/src). Therefore, we excluded unnecessary information such as: host information and overlapping variables. 
+For the first step it was decided to only use variables usefull for the analysis. The variable list is available [here](https://github.com/course-dprep/team-assignment-team-4/blob/data_exploration/src/README.md). Therefore, we excluded unnecessary information such as: host information and overlapping variables. 
 ```
 data_filtered <- df[c('id','host_response_rate','host_is_superhost', 'host_identity_verified','property_type','room_type','accommodates','bathrooms_text','bedrooms',
                       'beds','amenities','price','minimum_nights','maximum_nights','number_of_reviews','review_scores_rating','review_scores_accuracy',
