@@ -31,7 +31,7 @@ EU_data_files <- list.files(path="cities", pattern=".csv")
 # Subsetting for the specified countries
 listing_EU <- Airbnb_listing_urls |> subset(Country %in% countries_in_EU)
 
-# Loop through the csv files and assign columns city & country
+# Read through the csv files and assign columns city & country
 airbnb_dfs <- Map(
     function(data_file, country, city) 
         read.csv(file.path("cities", data_file)) |> transform(country=country, city=city),
