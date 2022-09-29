@@ -1,13 +1,15 @@
 # Collecting the Data
 
-The data collection consists of 21 variables. 
+The data collection consists of 23 variables. 
 
 For further preparation of the data we used variables which are relevant for our model, these variables are shown in the table below. 
 
 
 |Variable                        |Description                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------|
-|id                              |Unique identifier of the listing                                                                |                                                                
+|id                              |Unique identifier of the listing                                                                |  
+|country                         |The country of the listing                                                                      |
+|city                            |The city of the listing                                                                         |
 |host_is_superhost               |Whether host is superhost                                                                       |
 |host_identity_verified          |Whether identity of host is known                                                               |
 |property_type                   |Self described type of property                                                                 |
