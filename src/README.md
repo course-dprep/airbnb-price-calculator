@@ -1,14 +1,13 @@
 # Collecting the Data
 
-The data collection consists of 23 variables. 
+The data collection consists of 21 variables. 
 
 For further preparation of the data we used variables which are relevant for our model, these variables are shown in the table below. 
 
 
 |Variable                        |Description                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------|
-|id                              |Unique identifier of the listing                                                                |
-|host_response_rate              |Rate at which a host responds                                                                   |
+|id                              |Unique identifier of the listing                                                                |                                                                
 |host_is_superhost               |Whether host is superhost                                                                       |
 |host_identity_verified          |Whether identity of host is known                                                               |
 |property_type                   |Self described type of property                                                                 |
@@ -17,7 +16,6 @@ For further preparation of the data we used variables which are relevant for our
 |bathrooms_text                  |The Number of bathrooms in the listing                                                          |
 |bedrooms                        |The number of bedrooms                                                                          |
 |beds                            |The number of bed(s)                                                                            |
-|amenities                       |Additional features of listing                                                                  |
 |price                           |Daily price in local currency                                                                   |
 |minimum_nights                  |Minimum number of nights a guest can stay                                                       |
 |maximum_nights                  |Maximum number of nights a guest can stay                                                       |
