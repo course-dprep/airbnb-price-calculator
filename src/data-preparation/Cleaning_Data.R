@@ -78,5 +78,5 @@ data_filtered$review_scores_value[is.na(data_filtered$review_scores_value)] <- 0
 # Approximately 23% of the host response rate has NA value, therefore we will exclude this variable for the analysis 
 data_filtered <- subset(data_filtered, select = -host_response_rate)
 
-#save dataset
-write.csv(data_filtered, file = "listings_final.csv", fileEncoding = "UTF-8")
+# Save dataset
+write.csv(data_filtered, file = "listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
