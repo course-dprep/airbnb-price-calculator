@@ -31,7 +31,7 @@ These countries were saved into a seperate dataframe.
 
 
 ## 1.2 Changing characters in the download links
-Some countries contain "strange" characters in their links, such as: "%C3%". R did not copy these links correctly, hence we had to create separate codes for these. 
+Some countries contain "strange" characters in their links, such as: "%C3%". R did not copy these links correctly, hence we had to create separate codes for these characters.  
 ```
 listing_EU$Link=gsub('é', '%C3%A9', listing_EU$Link)
 listing_EU$Link=gsub('í', '%C3%AD', listing_EU$Link)
@@ -67,7 +67,7 @@ The relevant host information about whether the identity of the host is publicly
 ## 2.5 Create a dummy variable for the property type
 
 ## 2.6 Check for missing values
-When checking the missing values, we found that the value of bedrooms was missing in 8.5% of the listigns. Since we argue that the amount of bedrooms is an important characteristic of an Airbnb listing and this is still a relatively small percentage, the missing values were dropped. additionally, the missing values of bedrooms and beds (0.4% and 1.4% respectively) were dropped. 
+When checking the missing values, we found that the value of bedrooms was missing in 8.5% of the listigns. Since we argue that the amount of bedrooms is an important characteristic of an Airbnb listing, the missing values were dropped. Additionally, the missing values of bedrooms and beds (0.4% and 1.4% respectively) were dropped. 
 
 Moreover, the reviews score had a total of ...% missing values. Since reviews are a vital part of a decision making process online, we decided not to drop the missing values but to replace them with "0". By doing this we allow the absence of reviews (scores) to be a part of the estimation tool. 
 
