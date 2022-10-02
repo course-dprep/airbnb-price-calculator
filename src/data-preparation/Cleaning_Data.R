@@ -80,3 +80,5 @@ data_filtered <- subset(data_filtered, select = -host_response_rate)
 
 # Save dataset
 write.csv(data_filtered, file = "listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
+                                        
+                                        
