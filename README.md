@@ -10,7 +10,7 @@ _How do the characteristics of an Airbnb affect the asking price to accurately p
 
 ## Research method
 
-The estimating tool will be accessible to everyone on a website. The website visitor must fill out specific information about their accommodation. The data used to determine the estimated yearly income are:
+The estimating tool will be accessible to everyone in an app. The visitor must fill out specific information about their accommodation. The data used to determine the estimated yearly income are:
 
 - average daily price for different listings 
 - monthly average occupancy rate for each city taken into account
@@ -18,6 +18,7 @@ The estimating tool will be accessible to everyone on a website. The website vis
 The average daily price considered will be based on competitors that have similar characteristics in terms of: 
 - demographics (e.g., neighborhood, nearby facilities) 
 - accommodation (e.g., rating, amenities, type of accommodation)
+See [here](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) for the specific variables used.  
 
 To collect the required data a web scraper for [InsideAirbnb](http://insideairbnb.com/get-the-data.html) was built.
 
@@ -30,10 +31,7 @@ This research provides applicable insights for current and potential Airbnb host
 ```
 - .github
 - data
-- gen
-  - analysis
-  - data-preparation
-  - paper
+  - dataset1
 - src
   - analysis
   - data-preparation
