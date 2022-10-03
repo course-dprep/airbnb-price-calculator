@@ -18,6 +18,7 @@ The estimating tool will be accessible to everyone in an app. The visitor must f
 The average daily price considered will be based on competitors that have similar characteristics in terms of: 
 - demographics (e.g., neighborhood, nearby facilities) 
 - accommodation (e.g., rating, amenities, type of accommodation)
+
 See [here](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) for the specific variables used.  
 
 To collect the required data a web scraper for [InsideAirbnb](http://insideairbnb.com/get-the-data.html) was built.
