@@ -56,3 +56,4 @@ for city in range(len(cities_list)):
 
 (pd.DataFrame(city_data)).to_csv("Airbnb_listing_urls.csv", index=False, sep=';') 
 
+
