@@ -176,15 +176,15 @@ server <- function(input, output, session){
     df<-df_creator(variable_list[,'x'], cities, regression_output, input, regression_model)
     
     # define the output
-    paste("A reasonable price for one night at this Airbnb would be: €",  round(df[df$city==input$city,'price'],2))
+    paste("The predicted price for one night at this Airbnb would be: €",  round(df[df$city==input$city,'price'],2))
   })
   
   
   # add a extra line that introduces the table
-  output$extra<- renderText({paste(" The number of bookings are based on the average number of bookings per city.Below you can find what the price and the predicted annual revenue of a comparable Airbnb in other European cities would be: \n ")})
+  output$extra<- renderText({paste(" The number of bookings are based on the average number of bookings per city. Below you can find what the price and the predicted annual revenue of a comparable Airbnb in other European cities would be: \n ")})
   
   # making df for annual revenue
-  booked_annual = c(68,74,79,54,46,74,55,82,27,83,49,68,62,39,35,34,55,53,79,60,88,68,80)
+  booked_annual = c(68,74,79,54,46,74,55,82,27,83,49,68,62,39,35,34,55,53,79,60,88,68,80) # created a dataframe with the average bookings of the European cities
   df_annual <- data.frame(cities, booked_annual)
   df_annual$booked_annual <- round(as.numeric(df_annual$booked_annual), 0)
   colnames(df_annual)[1] <- "city"
