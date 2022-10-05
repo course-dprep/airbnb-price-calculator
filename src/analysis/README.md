@@ -1,4 +1,4 @@
-# The Shiny Price Calculater App
+# The Shiny App Price Calculater
 
 An app was created using the shiny app package in R. This app aims to give current and potential Airbnb hosts a tool that can help them make an accurate prediction of the price they can ask and their rental properties annual revenue. In the screenshot below you can find a preview of the price prediction app. However we recommend running the defined workflow of our repository. 
 
