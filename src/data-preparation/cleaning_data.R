@@ -1,5 +1,7 @@
 library('dplyr')
 
+df <- read.csv("listings_download.csv", fileEncoding = "UTF-8")
+
 # filtering for variables that are interesting for ou pricing tool
 data_filtered <- df[c('id','country','city','host_response_rate','host_is_superhost', 'host_identity_verified','property_type','room_type','accommodates','bathrooms_text','bedrooms',
                       'beds', 'price','minimum_nights','maximum_nights','number_of_reviews','review_scores_rating','review_scores_accuracy',
@@ -44,6 +46,7 @@ data_filtered <- data_filtered %>% mutate(property_type=ifelse(property_type %in
 
 # compute means per city to check the validity of prices
 data_filtered %>% group_by(city) %>% summarize_at(vars(price), list(name=mean), na.rm=TRUE) 
+data_filtered %>% group_by(city) %>% summarize_at(vars(price_per_person), list(name=mean), na.rm=TRUE) 
 
 # delete observations with extreme low and high price outliers based on price per person
 data_filtered <- data_filtered %>% filter(price_per_person > 0 & price_per_person < 1500)
@@ -80,5 +83,4 @@ data_filtered <- subset(data_filtered, select = -host_response_rate)
 
 # Save dataset
 write.csv(data_filtered, file = "listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
-                                        
-                                        
+
