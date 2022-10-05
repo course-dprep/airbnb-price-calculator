@@ -1,5 +1,6 @@
 library('dplyr')
 
+# load the data 
 df <- read.csv("listings_download.csv", fileEncoding = "UTF-8")
 
 # filtering for variables that are interesting for ou pricing tool
