@@ -45,6 +45,7 @@ To collect the required data a web scraper for [InsideAirbnb](http://insideairbn
 ## Relevance
 This research provides applicable insights for current and potential Airbnb hosts. This research aims to give Airbnb hosts a tool that can help them make an accurate prediction of their rental properties annual revenue. For current hosts, the tool can also help to see if their current price is up to date. In addition, it can also provide an indication of the price if the host wants to make a change to the Airbnb, for example an extra bed, but also consider the effect of additional reviews. It can be said that this tool created by this research helps the hosts make a good investment or avoid loss. 
 
+## Conclusion
 
 ## repository overview
 
