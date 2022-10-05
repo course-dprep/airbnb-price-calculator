@@ -21,7 +21,7 @@ The average daily price considered will be based on competitors that have simila
 
 See [here](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) for the original variables used.
 
-Listed below are the 14 variables after cleaning the data and running the regression. 
+Listed below are the final fourteen variables after cleaning the data and running the regression. 
 
 |Variable                        |Description                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------|
