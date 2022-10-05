@@ -60,5 +60,5 @@ write.csv(variable_list_listings, file = "variable_list_listings.csv", fileEncod
 # Save the model to make predictions in the shinyapp later on
 parsed_regression <- parse_model(regression_final)
 
-write_yaml(parsed_regression, "regression_output_wr.yml")
+write_yaml(parsed_regression, "regression_output.yml")
 
