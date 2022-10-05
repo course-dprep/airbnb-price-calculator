@@ -181,7 +181,7 @@ server <- function(input, output, session){
   
   
   # add a extra line that introduces the table
-  output$extra<- renderText({paste(" The number of bookings are based on the average number of bookings per city. Below you can find what the price and the predicted annual revenue of a comparable Airbnb in other European cities would be: \n ")})
+  output$extra<- renderText({paste(" The number of bookings are based on the average number of annual bookings per city. Below you can find what the price and the predicted annual revenue of a comparable Airbnb in other European cities would be: \n ")})
   
   # making df for annual revenue
   booked_annual = c(68,74,79,54,46,74,55,82,27,83,49,68,62,39,35,34,55,53,79,60,88,68,80) # created a dataframe with the average bookings of the European cities
