@@ -43,6 +43,7 @@ airbnb_dfs <- Map(
 # Bind the data together to one dataframe
 df <- bind_rows(airbnb_dfs)
 
+# dave the data in a csv file
 write.csv(data_filtered, file = "listings_download.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 
