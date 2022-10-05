@@ -19,7 +19,26 @@ The average daily price considered will be based on competitors that have simila
 - demographics (e.g., neighborhood, nearby facilities) 
 - accommodation (e.g., rating, amenities, type of accommodation)
 
-See [here](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) for the specific variables used.  
+See [here](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) for the original variables used.
+
+Listed below are the 14 variables after cleaning the data and running the regression. 
+
+|Variable                        |Description                                                                                     |
+|--------------------------------|------------------------------------------------------------------------------------------------|
+|city                            |The city of the listing                                                                         |
+|host_is_superhost               |Whether host is superhost                                                                       |
+|property_type                   |Self described type of property                                                                 |
+|room_type                       |All homes are grouped into three types: Entire place / Shared room / Private room               |
+|accommodates                    |The maximum capacity of the listing                                                             |
+|bathrooms_text                  |The Number of bathrooms in the listing                                                          |
+|price                           |Daily price in local currency                                                                   |
+|review_scores_rating            |General review score of the listing                                                             |
+|review_scores_cleanliness       |Review score for cleanliness of the listing                                                     |
+|review_scores_checkin           |Review score of the check-in at the listing                                                     |
+|review_scores_communication     |Review score of the communication by host                                                       |
+|review_scores_location          |Review score of the property location                                                           |
+|review_scores_value             |Review score of value of the listing                                                            |
+|instant_bookable                |Whether the guest can automatically book the listing without the host requiring to accept       |   
 
 To collect the required data a web scraper for [InsideAirbnb](http://insideairbnb.com/get-the-data.html) was built.
 
