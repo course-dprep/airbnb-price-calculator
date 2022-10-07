@@ -23,7 +23,7 @@ data_filtered$bathrooms_text <- (gsub("[^0-9.]", "", data_filtered$bathrooms_tex
 column_list_numeric <- grep('bathrooms_text|price|host_response_rate|host_listings_count|accommodates|bedrooms|beds|minimum_nights|maximum_nights|number_of_reviews|review_scores_rating|review_scores_accuracy|review_scores_cleanliness|review_scores_checkin|review_scores_communication|review_scores_location|review_scores_value|reviews_per_month', colnames(data_filtered,), value=T)
 #for loop where we unlist the list in order to convert them to numeric
 for (column in column_list_numeric){
-    data_filtered[,column] <- as.numeric(unlist(data_filtered[,column]))
+  data_filtered[,column] <- as.numeric(unlist(data_filtered[,column]))
 }
 
 # Price per person in new column 
@@ -31,13 +31,13 @@ data_filtered$price_per_person <- data_filtered$price/data_filtered$accommodates
 
 # Converting instant bookable into binary
 data_filtered <- data_filtered %>% mutate(instant_bookable=ifelse(instant_bookable == "t", 1,
-                                                                   ifelse(instant_bookable == "f", 0, NA)))
+                                                                  ifelse(instant_bookable == "f", 0, NA)))
 
 # Converting host variables into binary 
 data_filtered <- data_filtered %>% mutate(host_is_superhost=ifelse(host_is_superhost == "t", 1,
-                                                                       ifelse(host_is_superhost == "f", 0, NA)))
+                                                                   ifelse(host_is_superhost == "f", 0, NA)))
 data_filtered <- data_filtered %>% mutate(host_identity_verified=ifelse(host_identity_verified == "t", 1,
-                                                                            ifelse(host_identity_verified == "f", 0, NA)))
+                                                                        ifelse(host_identity_verified == "f", 0, NA)))
 
 # Creating a dummy variable for property type, the types that occur less than 1% will be changed to 'non-common property type' for the final analysis
 table_property_type <-as.data.frame(table(data_filtered$property_type))
@@ -85,3 +85,4 @@ data_filtered <- subset(data_filtered, select = -host_response_rate)
 # Save dataset
 write.csv(data_filtered, file = "listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
+                                        
