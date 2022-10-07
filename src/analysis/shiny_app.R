@@ -83,10 +83,10 @@ ui <- fluidPage(
   
   # theme
   theme = shinytheme('superhero'),
-    
+  
   # title of application
   titlePanel("Airbnb price calculator"),
-
+  
   
   # information about your listing
   sidebarLayout(
@@ -161,14 +161,14 @@ server <- function(input, output, session){
                        min = ifelse(input$ratings_present == "Yes",0, 0 ),
                        max = ifelse(input$ratings_present == "Yes",5, 0 ))
   })
-
+  
   # run the applicable regression analysis over the data that the user filled out
   output$out<-renderText({
     
-      df<-df_creator(variable_list[,'x'], cities, regression_output, input, regression_model)
-      
-      # define the output
-      paste("A reasonable price for one night at this Airbnb would be: €",  round(df[df$city==input$city,'price'],2))
+    df<-df_creator(variable_list[,'x'], cities, regression_output, input, regression_model)
+    
+    # define the output
+    paste("A reasonable price for one night at this Airbnb would be: €",  round(df[df$city==input$city,'price'],2))
   })
   
   output$out<-renderText({
@@ -194,16 +194,17 @@ server <- function(input, output, session){
   output$table <- renderTable({
     df<-df_creator(variable_list[,'x'], cities, regression_output, input, regression_model)
     
-      # extract only the relevant columns of the dataframe that we want to show to the user
-      df_to_show<-df%>% select(city, 'price')
-      df_to_show<- merge(df_to_show, df_annual, by='city')
-      df_to_show['predicted revenue'] <- df_to_show$price*df_to_show$`number of bookings`
-      df_to_show
-      })
+    # extract only the relevant columns of the dataframe that we want to show to the user
+    df_to_show<-df%>% select(city, 'price')
+    df_to_show<- merge(df_to_show, df_annual, by='city')
+    df_to_show['predicted revenue'] <- df_to_show$price*df_to_show$`number of bookings`
+    df_to_show
+  })
 }
 
 # run the application 
 shinyApp(ui = ui, server = server) 
 
+write.csv(regression_output, file= "regression_output.csv", fileEncoding = "UTF-8")
 
 
