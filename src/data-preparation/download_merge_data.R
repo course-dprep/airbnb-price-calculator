@@ -56,4 +56,3 @@ df <- bind_rows(airbnb_dfs)
 write.csv(df, file = "listings_download.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 
-
