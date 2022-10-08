@@ -101,7 +101,7 @@ To run the code, we recommend following the following instructions:
 ```
 git clone https://github.com/{your username}/airbnb-price-calculator.git
 ```
-3. To run all the code directly use the following command in your directory "airbnb-price-calculator":
+3. Set your working directory to "airbnb-price-calculator" and run the following command:
 ```
 make
 ```
