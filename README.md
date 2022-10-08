@@ -94,7 +94,30 @@ install.packages("readxl")
 ```
 
 ### Running the code
+#### Step-by-step
+To run the code, we recommend following the following instructions:
+1. Fork this repository
+2. Open your command line / terminal and run the following:
+```
+git clone https://github.com/{your username}/airbnb-price-calculator.git
+```
+3. To run all the code directly use the following command in your directory "airbnb-price-calculator":
+```
+make
+```
+4. When make has succesfully run all the code, it will generate a http link. Click or copy and paste this link in your browser to launch the price calculator app. 
 
+Note: when the command line/terminal is closed, the website will not be available anymore. 
+
+An alternative route to run the code would be: 
+- ../src/data-preparation -> download_merge_data.R
+- ../src/data-preparation -> cleaning_data.R
+- ../src/analysis -> regression_analysis.R
+- ../src/price-calculator-app -> shiny_app.R
+
+#### Running the data collection
+The workflow above does not include the data collection step. The output files of this step is shared in a google drive folder, which is downloaded in the code. However, if you wish to collect the data yourself, you can by running our website scraper. The code for this scraper can be found [here](https://github.com/course-dprep/airbnb-price-calculator/blob/master/src/data-preparation/webscraper_airbnb_python.py): 
+- ../src/data-preparation -> webscraper_airbnb_python.py
 
 ## Authors
 [Cas Rooijackers](https://github.com/casrooij), [Gennaro Santoro](https://github.com/Ginseng-Effect), [Jesper Krauth](https://github.com/jesperkrauth), [Ludovica Donatelli](https://github.com/ludoivca), [Patrick de Graaf](https://github.com/Patrickdeg)
