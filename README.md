@@ -105,7 +105,7 @@ git clone https://github.com/{your username}/airbnb-price-calculator.git
 ```
 make
 ```
-4. When make has succesfully run all the code, it will generate a http link. Click or copy and paste this link in your browser to launch the price calculator app. 
+4. When make has succesfully run all the code, it will generate a http link. Copy and paste this link in your browser to launch the price calculator app. 
 
 Note: when the command line/terminal is closed, the website will not be available anymore. 
 
