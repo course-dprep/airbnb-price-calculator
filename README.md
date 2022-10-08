@@ -15,7 +15,7 @@ The estimating tool will be accessible to everyone in an app. The visitor must f
 - average daily price for different listings 
 - monthly average occupancy rate for each city taken into account
 
-The average daily price considered will be based on competitors that have similar characteristics in terms of: 
+The average daily price considered is based on competitors that have similar characteristics in terms of: 
 - demographics (e.g., neighborhood, nearby facilities) 
 - accommodation (e.g., rating, amenities, type of accommodation)
 
