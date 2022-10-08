@@ -1,14 +1,13 @@
-## regression analysis
+TEMP = ../../gen/temp
 
-all: regression_output_listings.csv variable_list_listings.csv regression_output.yml
+all: $(TEMP)/regression_output_listings.csv $(TEMP)/variable_list_listings.csv $(TEMP)/regression_output.yml
 
-regression_output_listings.csv: regression_analysis.R
-R --vanilla < regression_analysis.R
+$(TEMP)/regression_output_listings.csv: regression_analysis.R
+		R --vanilla < regression_analysis.R
+		mkdir -p ../../gen/temp
+		
+$(TEMP)/variable_list_listings.csv: regression_analysis.R
+		R --vanilla < regression_analysis.R		
 
-variable_list_listings.csv: regression_analysis.R
-R --vanilla < regression_analysis.R		
-
-regression_output.yml: regression_analysis.R
-R --vanilla < regression_analysis.R
-
-
+$(TEMP)/regression_output.yml: regression_analysis.R
+		R --vanilla < regression_analysis.R
