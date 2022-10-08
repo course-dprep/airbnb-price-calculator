@@ -8,7 +8,7 @@ library(ggfortify)
 library(yaml)
 
 # Load 
-listings_final <- read_csv("listings_final.csv")
+listings_final <- read_csv("../../data/listings_final.csv")
 
 
 
@@ -52,14 +52,19 @@ summary(regression_final)
 # Save the output in a dataframe
 df_regression_final <- tidy(regression_final)
 
-# Save the regression output and the variable list in a csv file
-write.csv(df_regression_final, file = "regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+# creating directory for saving the data
+dir.create("../../gen/")
+dir.create("../../gen/temp/")
 
-write.csv(variable_list_listings, file = "variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+# Save the regression output and the variable list in a csv file
+write.csv(df_regression_final, file = "../../gen/temp/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+
+write.csv(variable_list_listings, file = "../../gen/temp/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 # Save the model to make predictions in the shinyapp later on
 parsed_regression <- parse_model(regression_final)
 
-write_yaml(parsed_regression, "regression_output.yml")
+write_yaml(parsed_regression, "../../gen/temp/regression_output.yml")
+
 
 
