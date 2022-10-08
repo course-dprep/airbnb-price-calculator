@@ -1,7 +1,8 @@
 library('dplyr')
+library('tidyverse')
 
 # load the data 
-df <- read.csv("listings_download.csv", fileEncoding = "UTF-8")
+df <- read.csv("../../data/listings_download.csv", fileEncoding = "UTF-8")
 
 # filtering for variables that are interesting for ou pricing tool
 data_filtered <- df[c('id','country','city','host_response_rate','host_is_superhost', 'host_identity_verified','property_type','room_type','accommodates','bathrooms_text','bedrooms',
@@ -58,7 +59,6 @@ data_filtered %>% group_by(city) %>% summarize_at(vars(price), list(name=mean), 
 
 # Checking for the % of NA
 df_missing_values<-as.data.frame(sapply(data_filtered, function(x) sum(is.na(x))))
-View(df_missing_values)
 
 # Bedrooms NA ≈ 8,5% so for validity we can delete NA values
 data_filtered <- data_filtered %>% drop_na(bedrooms)
@@ -83,6 +83,6 @@ data_filtered$review_scores_value[is.na(data_filtered$review_scores_value)] <- 0
 data_filtered <- subset(data_filtered, select = -host_response_rate)
 
 # Save dataset
-write.csv(data_filtered, file = "listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
+write.csv(data_filtered, file = "../../data/listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
                                         
