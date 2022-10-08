@@ -77,17 +77,19 @@ pip install selenium
 
 - For R, make sure you have installed below packages:
 ```
-install.packages("tidyverse")
-install.packages("ggfortify")
-install.packages("yaml")
-install.packeges("shiny")
-install.packages("googledrive")
-install.packages("tidypredict")
-install.packages("car")
-install.packages("base")
 install.packages("data.table")
+install.packages("shiny")
+install.packages("shinyWidgets")
+install.packages("bslib")
+install.packages("shinythemes")
+install.packages("yaml")
+install.packages("readr")
+install.packages("tidypredict")
 install.packages("broom")
-install.packages("haven")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("ggfortify")
+install.packages("tidyverse")
 install.packages("readxl")
 ```
 
