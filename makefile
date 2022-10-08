@@ -1,4 +1,4 @@
-all: data-preparation analysis price-calculator-app
+all: data-preparation analysis price-calculator-app clean
 
 data-preparation:
 	make -C src/data-preparation
