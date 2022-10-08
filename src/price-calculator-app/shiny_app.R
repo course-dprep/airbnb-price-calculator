@@ -11,10 +11,10 @@ library(broom)
 library(dplyr)
 
 # Load the output of the regression
-regression_output<- read.csv("regression_output_listings.csv", fileEncoding = "UTF-8")
-airbnb_listings <- read.csv("listings_final.csv", fileEncoding = "UTF-8") 
-variable_list<- read.csv("variable_list_listings.csv")
-regression_model<-read_yaml("regression_output.yml")
+regression_output<- read.csv("../../gen/temp/regression_output_listings.csv", fileEncoding = "UTF-8")
+airbnb_listings <- read.csv("../../data/listings_final.csv", fileEncoding = "UTF-8") 
+variable_list<- read.csv("../../gen/temp/variable_list_listings.csv")
+regression_model<-read_yaml("../../gen/temp/regression_output.yml")
 regression_model <- as_parsed_model(regression_model)
 
 
@@ -206,5 +206,7 @@ server <- function(input, output, session){
 shinyApp(ui = ui, server = server) 
 
 
-write.csv(regression_output, file= "regression_output.csv", fileEncoding = "UTF-8")
+# saving the output
+write.csv(regression_output, file= "../../gen/temp/regression_output.csv", fileEncoding = "UTF-8")
+
 
