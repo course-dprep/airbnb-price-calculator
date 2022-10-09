@@ -1,28 +1,29 @@
+# Load libraries
 library('dplyr')
 library('tidyverse')
 
-# load the data 
+# Load the data 
 df <- read.csv("../../data/listings_download.csv", fileEncoding = "UTF-8")
 
-# filtering for variables that are interesting for ou pricing tool
+# Filtering for variables that are of interest for our pricing tool
 data_filtered <- df[c('id','country','city','host_response_rate','host_is_superhost', 'host_identity_verified','property_type','room_type','accommodates','bathrooms_text','bedrooms',
                       'beds', 'price','minimum_nights','maximum_nights','number_of_reviews','review_scores_rating','review_scores_accuracy',
                       'review_scores_cleanliness','review_scores_checkin','review_scores_communication','review_scores_location','review_scores_value',
                       'instant_bookable')]
 
 
-# InsideAirbnb makes every valuta into $
+# InsideAirbnb lists all currencies in dollars
 data_filtered$price <- (gsub("\\$|,", "", data_filtered$price))
-# Deleting percentage from repsonse rate
+# Deleting percentage sign (%) from response rate
 data_filtered$host_response_rate <- (gsub("%", "", data_filtered$host_response_rate))
 
-# recode bathroom_text to numeric values, by dropping everything except numbers and dots
+# Recode bathroom_text to numeric values, by dropping everything except numbers and dots
 data_filtered$bathrooms_text <- (gsub("[^0-9.]", "", data_filtered$bathrooms_text))
 
 
-# create a list of the columns we want to convert to numeric
+# Create a list of the columns we want to convert to numeric
 column_list_numeric <- grep('bathrooms_text|price|host_response_rate|host_listings_count|accommodates|bedrooms|beds|minimum_nights|maximum_nights|number_of_reviews|review_scores_rating|review_scores_accuracy|review_scores_cleanliness|review_scores_checkin|review_scores_communication|review_scores_location|review_scores_value|reviews_per_month', colnames(data_filtered,), value=T)
-#for loop where we unlist the list in order to convert them to numeric
+# For loop where we unlist the list in order to convert them to numeric
 for (column in column_list_numeric){
   data_filtered[,column] <- as.numeric(unlist(data_filtered[,column]))
 }
@@ -46,14 +47,14 @@ table_cut_of<- table_property_type %>% filter(Freq >0.01*nrow(data_filtered))
 data_filtered <- data_filtered %>% mutate(property_type=ifelse(property_type %in% table_cut_of$Var1, property_type, 'Non-common proporty type'))
 
 
-# compute means per city to check the validity of prices
+# Compute means per city to check the validity of prices
 data_filtered %>% group_by(city) %>% summarize_at(vars(price), list(name=mean), na.rm=TRUE) 
 data_filtered %>% group_by(city) %>% summarize_at(vars(price_per_person), list(name=mean), na.rm=TRUE) 
 
-# delete observations with extreme low and high price outliers based on price per person
+# Delete observations with extreme low and high price outliers based on price per person
 data_filtered <- data_filtered %>% filter(price_per_person > 0 & price_per_person < 1500)
 
-# check means again for face validity
+# Check means again for face validity
 data_filtered %>% group_by(city) %>% summarize_at(vars(price), list(name=mean), na.rm=TRUE) 
 
 
