@@ -1,4 +1,4 @@
-# load the packages
+# Load the packages
 library(data.table)
 library(shiny)
 library(shinyWidgets)
@@ -19,7 +19,6 @@ regression_model <- as_parsed_model(regression_model)
 
 
 ## Clean the variables and create lists:
-
 # Property types
 regression_output_prop <- regression_output[regression_output$term %like% "property_type",] 
 regression_output_prop$term <- (gsub("property_type", "", regression_output_prop$term))
@@ -35,18 +34,18 @@ regression_output_cities <- regression_output[regression_output$term %like% "cit
 regression_output_cities$term <- (gsub("city", "", regression_output_cities$term))
 cities<-sort(unique(airbnb_listings$city))
 
-## function
+## Function
 # Make an empty data frame with the variables as headers
 
 df_creator<-function(variable_list, cities, regression_output, input, regression_final){
   
-  #load the variables that were taken into the model and create an empty data frame with these variables as heading (this dataframe will later be used to run the regression on):
+  # Load the variables that were taken into the model and create an empty data frame with these variables as heading (this dataframe will later be used to run the regression on):
   table_heads <- variable_list
   table_heads <- gsub("\\`", "", table_heads) # remove the '`' from the headings, this way the heading matches the regression headings.
   df <- data.frame(matrix(ncol = length(table_heads), nrow = length(cities))) # make an empty data frame on which we will run the regression
   colnames(df) <- table_heads # change the column names into the needed table headers
   
-  # safe the other input of the user to the dataframe, such that we can later apply the regression on this data frame  
+  # Save the other input of the user to the dataframe, such that we can later apply the regression on this data frame  
   df[1, 'property_type']<- input$"Property type"
   df[1, 'host_is_superhost'] <- as.numeric(input$superhost)
   df[1, 'bathrooms_text']<- as.numeric(input$bath)
@@ -78,7 +77,7 @@ df_creator<-function(variable_list, cities, regression_output, input, regression
 
 ## Shiny App
 
-# define UI for application 
+# Define UI for application 
 ui <- fluidPage(
   
   # theme
@@ -202,11 +201,10 @@ server <- function(input, output, session){
   })
 }
 
-# run the application 
-shinyApp(ui = ui, server = server) 
-
-
-# saving the output
+# Saving the output
 write.csv(regression_output, file= "../../gen/temp/regression_output.csv", fileEncoding = "UTF-8")
+
+# Run the application 
+shinyApp(ui = ui, server = server) 
 
 

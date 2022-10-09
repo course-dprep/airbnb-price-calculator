@@ -7,10 +7,8 @@ library(ggplot2)
 library(ggfortify)
 library(yaml)
 
-# Load 
+# Load listings_final.csv
 listings_final <- read_csv("../../data/listings_final.csv")
-
-
 
 # Check for normality of price (DV)
 ggplot(listings_final, aes(price))+ geom_histogram(binwidth = 25)+ xlim(0, 4000) + ylim(0, 2000) 
@@ -18,8 +16,6 @@ ggplot(listings_final, aes(price))+ geom_histogram(binwidth = 25)+ xlim(0, 4000)
 # Since normality does not hold, we take the log of price
 listings_final <- listings_final %>% mutate(log_price=log(price))
 ggplot(listings_final, aes(log_price)) + geom_histogram(bins=60)
-
-
 
 # Multiple linear regression with log_price and all the relevant variables
 lm_listings <- lm(log_price ~ city + host_is_superhost + host_identity_verified + property_type + room_type + accommodates + bathrooms_text + bedrooms + beds + minimum_nights + maximum_nights + number_of_reviews + review_scores_rating + review_scores_accuracy + review_scores_cleanliness + review_scores_checkin + review_scores_communication + review_scores_location + review_scores_value + instant_bookable, data = listings_final)
@@ -47,16 +43,10 @@ formula_listings <- as.formula(paste0('log(price)~', character_variables_listing
 regression_final <- lm(formula_listings, listings_final)
 summary(regression_final)
 
-
-
 # Save the output in a dataframe
 df_regression_final <- tidy(regression_final)
 
-# creating directory for saving the data
-dir.create("../../gen/")
-dir.create("../../gen/temp/")
-
-# Save the regression output and the variable list in a csv file
+# Save the regression output and the variable list in a CSV file
 write.csv(df_regression_final, file = "../../gen/temp/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 write.csv(variable_list_listings, file = "../../gen/temp/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
