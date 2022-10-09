@@ -8,8 +8,6 @@
 from bs4 import BeautifulSoup
 from time import sleep
 import pandas as pd
-import time
-import datetime
 
 
 # ### 2) Prepare Selenium
