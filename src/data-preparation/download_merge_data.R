@@ -9,8 +9,8 @@ drive_deauth()
 
 # Loading the URLS from Google drive
 data_id <-"https://docs.google.com/spreadsheets/d/16pAErs8l2_aAOdhUtmBoY1PIgiPDiQfU/edit?usp=sharing&ouid=117401560079139801880&rtpof=true&sd=true"
-drive_download(as_id(data_id), path = "Airbnb_listing_urls.xlsx", overwrite = TRUE)
-Airbnb_listing_urls <- read_excel("Airbnb_listing_urls.xlsx")
+drive_download(as_id(data_id), path = "../../data/Airbnb_listing_urls.xlsx", overwrite = TRUE)
+Airbnb_listing_urls <- read_excel("../../data/Airbnb_listing_urls.xlsx")
 
 # Filter for all countries in western EU
 countries_in_EU <- c('Belgium', 'France', 'Germany', 'The Netherlands', 'Portugal', 'Spain')
