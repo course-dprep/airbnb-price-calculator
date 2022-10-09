@@ -1,28 +1,26 @@
-
-library('tidyverse')
-library('dplyr')
+# Load libraries
+library(tidyverse)
+library(dplyr)
 library(readxl)
-
-# install the Google drive package
 library(googledrive)
 
-# deactivate the authorization for Google drive
+# Deactivate the authorization for Google drive
 drive_deauth()
 
 # Loading the URLS from Google drive
 data_id <-"https://docs.google.com/spreadsheets/d/16pAErs8l2_aAOdhUtmBoY1PIgiPDiQfU/edit?usp=sharing&ouid=117401560079139801880&rtpof=true&sd=true"
-dir.create("../../data/")
+dir.create("../../data/") # this one can be removed right? it's also in the makefile
 drive_download(as_id(data_id), path = "Airbnb_listing_urls.xlsx", overwrite = TRUE)
 Airbnb_listing_urls <- read_excel("Airbnb_listing_urls.xlsx")
 
-# filter for all countries in western EU
+# Filter for all countries in western EU
 countries_in_EU <- c('Belgium', 'France', 'Germany', 'The Netherlands', 'Portugal', 'Spain')
 
 # Filter for countries in EU
 listing_EU <- Airbnb_listing_urls %>% filter(Country %in% countries_in_EU)
 
 # Create a directory for cities
-dir.create('cities')
+dir.create('cities') # need to put this in the gen/temp folder?
 
 # Subsetting for the specified countries
 listing_EU <- Airbnb_listing_urls |> subset(Country %in% countries_in_EU)
@@ -53,7 +51,7 @@ airbnb_dfs <- Map(
 # Bind the data together to one dataframe
 df <- bind_rows(airbnb_dfs)
 
-# dave the data in a csv file
+# Save the data in a CSV file
 write.csv(df, file = "../../data/listings_download.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 
