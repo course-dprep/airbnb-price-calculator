@@ -8,7 +8,8 @@ analysis: data-preparation
     
 price-calculator-app: analysis
 	make -C src/price-calculator-app
+	
 clean: 
-	-rm -r ../../data
-	-rm -r ../../gen
+	-rm -r data
+	-rm -r gen
 
