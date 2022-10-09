@@ -107,6 +107,11 @@ make
 ```
 4. When make has succesfully run all the code, it will generate a http link. Copy and paste this link in your browser to launch the price calculator app. 
 
+5. To clean the data of all raw and unnecessary data files created during the pipeline, run the following code in the command line / terminal: 
+```
+make clean
+```
+
 Note: when the command line/terminal is closed, the website will not be available anymore. 
 
 An alternative route to run the code would be: 
