@@ -114,6 +114,7 @@ make clean
 
 Note: when the command line/terminal is closed, the website will not be available anymore. 
 
+#### Alternative route
 An alternative route to run the code would be: 
 - ../src/data-preparation -> download_merge_data.R
 - ../src/data-preparation -> cleaning_data.R
