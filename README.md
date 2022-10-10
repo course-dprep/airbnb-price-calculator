@@ -19,7 +19,7 @@ The average daily price considered is based on competitors that have similar cha
 - demographics (e.g., neighborhood, nearby facilities) 
 - accommodation (e.g., rating, amenities, type of accommodation)
 
-See [here](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) for the original variables used.
+see the [original variables](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) used.
 
 Listed below are the final fourteen variables after cleaning the data and running the regression. 
 
