@@ -29,7 +29,7 @@ listing_eu$Link=gsub('√≠', '%C3%AD', listing_eu$Link)
 listing_eu$Link=gsub('√©', '%C3%A9', listing_eu$Link)
 
 # Download the files
-for (i in 1:nrow(listing_eu) { 
+for (i in 1:nrow(listing_eu)) { 
   myurl <- paste(listing_eu[i,3], sep = "") 
   myfile <- paste0("../../data/cities/", listing_eu$City[i], ".csv")
   download.file(url = myurl, destfile = myfile)
