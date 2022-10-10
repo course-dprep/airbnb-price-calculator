@@ -25,10 +25,6 @@ dir.create('../../data/cities')
 # Subsetting for the specified countries
 listing_eu <- airbnb_listing_urls %>% subset(Country %in% countries_in_eu)
 
-# Change characters in order to prevent error while downloading data
-listing_eu$Link=gsub('√≠', '%C3%AD', listing_eu$Link)
-listing_eu$Link=gsub('√©', '%C3%A9', listing_eu$Link)
-
 # Download the files
 for (i in 1:nrow(listing_eu)) { 
   myurl <- paste(listing_eu[i,3], sep = "") 
