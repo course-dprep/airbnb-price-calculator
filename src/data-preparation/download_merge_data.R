@@ -9,6 +9,7 @@ drive_deauth()
 
 # Loading the URLS from Google drive
 data_id <-"https://docs.google.com/spreadsheets/d/16pAErs8l2_aAOdhUtmBoY1PIgiPDiQfU/edit?usp=sharing&ouid=117401560079139801880&rtpof=true&sd=true"
+dir.create('../../data')
 drive_download(as_id(data_id), path = "../../data/Airbnb_listing_urls.xlsx", overwrite = TRUE)
 airbnb_listing_urls <- read_excel("../../data/Airbnb_listing_urls.xlsx")
 
