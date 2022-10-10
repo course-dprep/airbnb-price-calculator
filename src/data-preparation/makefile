@@ -6,6 +6,7 @@ all: $(DATA)/listings_download.csv $(DATA)/listings_final.csv
 $(DATA)/listings_download.csv: download_merge_data.R
 	mkdir -p $(DATA)
 	mkdir -p ../../gen/temp
+	mkdir -p ../../gen/paper/output
 	R --vanilla < download_merge_data.R
 
 ## clean the data
