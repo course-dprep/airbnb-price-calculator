@@ -22,7 +22,7 @@ listing_EU <- Airbnb_listing_urls %>% filter(Country %in% countries_in_EU)
 dir.create('../../data/cities')
 
 # Subsetting for the specified countries
-listing_EU <- Airbnb_listing_urls |> subset(Country %in% countries_in_EU)
+listing_EU <- Airbnb_listing_urls %>% subset(Country %in% countries_in_EU)
 
 # Change characters in order to prevent error while downloading data
 listing_EU$Link=gsub('√≠', '%C3%AD', listing_EU$Link)
@@ -41,7 +41,7 @@ EU_data_files <- list.files(path="../../data/cities", pattern=".csv")
 # Read through the csv files and assign columns city & country
 airbnb_dfs <- Map(
   function(data_file, country, city) 
-    read.csv(file.path("../../data/cities", data_file)) |> transform(country=country, city=city),
+    read.csv(file.path("../../data/cities", data_file)) %>% transform(country=country, city=city),
   EU_data_files,
   listing_EU$Country,
   listing_EU$City
