@@ -196,7 +196,7 @@ server <- function(input, output, session){
     # extract only the relevant columns of the dataframe that we want to show to the user
     df_to_show<-df%>% select(city, 'price')
     df_to_show<- merge(df_to_show, df_annual, by='city')
-    df_to_show['predicted revenue'] <- df_to_show$price*df_to_show$`number of bookings`
+    df_to_show['predicted annual revenue'] <- df_to_show$price*df_to_show$`number of bookings`
     df_to_show
   })
 }
