@@ -47,6 +47,7 @@ summary(regression_final)
 df_regression_final <- tidy(regression_final)
 
 # Save the regression output and the variable list in a CSV file
+dir.create('../../gen/temp')
 write.csv(df_regression_final, file = "../../gen/temp/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 write.csv(variable_list_listings, file = "../../gen/temp/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
