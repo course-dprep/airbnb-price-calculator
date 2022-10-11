@@ -1,4 +1,5 @@
 DATA = ../../data
+EXPLORATION = ../../src/data-preparation
 
 all: $(DATA)/listings_download.csv $(DATA)/listings_final.csv $(EXPLORATION)/data_exploration.htmlv
 
