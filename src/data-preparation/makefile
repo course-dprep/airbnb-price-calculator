@@ -1,7 +1,7 @@
 DATA = ../../data
 EXPLORATION = ../../src/data-preparation
 
-all: $(DATA)/listings_download.csv $(DATA)/listings_final.csv $(EXPLORATION)/data_exploration.htmlv
+all: $(DATA)/listings_download.csv $(DATA)/listings_final.csv $(EXPLORATION)/data_exploration.html
 
 ## download & merge the data
 $(DATA)/listings_download.csv: download_merge_data.R
