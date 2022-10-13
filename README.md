@@ -56,8 +56,6 @@ We recommend running the code to see the price prediction tool for yourself. The
 
 ```
 - .github
-- data
-  - dataset1
 - src
   - analysis
   - data-preparation
