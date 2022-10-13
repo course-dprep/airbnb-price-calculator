@@ -8,7 +8,7 @@ library(ggfortify)
 library(yaml)
 
 # Load listings_final.csv
-listings_final <- read_csv("../../data/listings_final.csv")
+listings_final <- read_csv("../../gen/data-preparation/output/listings_final.csv")
 
 # Check for normality of price (DV)
 ggplot(listings_final, aes(price))+ geom_histogram(binwidth = 25)+ xlim(0, 4000) + ylim(0, 2000) 
@@ -51,17 +51,17 @@ summary(regression_final)
 # Save the output in a dataframe
 df_regression_final <- tidy(regression_final)
 
-# Save the regression output and the variable list in a CSV file
-dir.create('../../gen') # creating directory gen to save the files
-dir.create('../../gen/temp') # creating directory gen/temp to save the temporary files
-write.csv(df_regression_final, file = "../../gen/temp/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+# creating directory to save the files
+dir.create('../../gen/analysis') 
+dir.create('../../gen/analysis/input')
 
-write.csv(variable_list_listings, file = "../../gen/temp/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+# save the data to csv files
+write.csv(df_regression_final, file = "../../gen/analysis/input/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+write.csv(variable_list_listings, file = "../../gen/analysis/input/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 # Save the model to make predictions in the shinyapp later on
 parsed_regression <- parse_model(regression_final)
-
-write_yaml(parsed_regression, "../../gen/temp/regression_output.yml")
+write_yaml(parsed_regression, "../../gen/analysis/input/regression_output.yml")
 
 
 

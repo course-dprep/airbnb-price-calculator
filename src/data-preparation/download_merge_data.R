@@ -47,8 +47,13 @@ airbnb_dfs <- Map(
 # Bind the data together to one dataframe
 df <- bind_rows(airbnb_dfs)
 
-# Save the data in a CSV file
-write.csv(df, file = "../../data/listings_download.csv", fileEncoding = "UTF-8",row.names=FALSE )
+# Create directories to save data
+dir.create('../../gen')
+dir.create('../../gen/data-preparation')
+dir.create('../../gen/data-preparation/input')
+
+# Save the data as a CSV file
+write.csv(df, file = "../../gen/data-preparation/input/listings_download.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 
 

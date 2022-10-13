@@ -11,12 +11,11 @@ library(broom)
 library(dplyr)
 
 # Load the output of the regression
-regression_output<- read.csv("../../gen/temp/regression_output_listings.csv", fileEncoding = "UTF-8")
-airbnb_listings <- read.csv("../../data/listings_final.csv", fileEncoding = "UTF-8") 
-variable_list<- read.csv("../../gen/temp/variable_list_listings.csv")
-regression_model<-read_yaml("../../gen/temp/regression_output.yml")
+regression_output<- read.csv("../../gen/analysis/input/regression_output_listings.csv", fileEncoding = "UTF-8")
+airbnb_listings <- read.csv("../../gen/data-preparation/output/listings_final.csv", fileEncoding = "UTF-8") 
+variable_list<- read.csv("../../gen/analysis/input/variable_list_listings.csv")
+regression_model<-read_yaml("../../gen/analysis/input/regression_output.yml")
 regression_model <- as_parsed_model(regression_model)
-
 
 ## Clean the variables and create lists:
 # Property types
@@ -179,8 +178,10 @@ server <- function(input, output, session){
   })
 }
 
-# Saving the output
-write.csv(regression_output, file= "../../gen/temp/regression_output.csv", fileEncoding = "UTF-8")
+# Creating a directory for saving the output
+dir.create('../../gen/analysis/output')
+# Save the output to a CSV file
+write.csv(regression_output, file= "../../gen/analysis/output/regression_output.csv", fileEncoding = "UTF-8")
 
 # Run the application 
 shinyApp(ui = ui, server = server) 
