@@ -80,6 +80,8 @@ Please follow the installation guide on http://tilburgsciencehub.com/.
 ```
 pip install bs4
 pip install selenium
+pip install pandas
+
 ```
 
 - For R, make sure you have installed below packages:
