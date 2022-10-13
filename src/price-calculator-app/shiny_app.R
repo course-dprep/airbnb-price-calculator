@@ -178,7 +178,9 @@ server <- function(input, output, session){
   })
 }
 
-# Saving the output
+# Creating a directory for saving the output
+dir.create('../../gen/analysis/output')
+# Save the output to a CSV file
 write.csv(regression_output, file= "../../gen/analysis/output/regression_output.csv", fileEncoding = "UTF-8")
 
 # Run the application 
