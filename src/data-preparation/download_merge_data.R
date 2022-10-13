@@ -9,7 +9,7 @@ drive_deauth()
 
 # Loading the URLS from Google drive
 data_id <-"https://docs.google.com/spreadsheets/d/16pAErs8l2_aAOdhUtmBoY1PIgiPDiQfU/edit?usp=sharing&ouid=117401560079139801880&rtpof=true&sd=true"
-dir.create('../../data')
+dir.create('../../data') # create directory for storing data file 
 drive_download(as_id(data_id), path = "../../data/Airbnb_listing_urls.xlsx", overwrite = TRUE)
 airbnb_listing_urls <- read_excel("../../data/Airbnb_listing_urls.xlsx")
 
@@ -26,9 +26,9 @@ dir.create('../../data/cities')
 listing_eu <- airbnb_listing_urls %>% subset(Country %in% countries_in_eu)
 
 # Download the files
-for (i in 1:nrow(listing_eu)) { 
+for (i in 1:nrow(listing_eu)) { # loop through all cities in listing_eu
   myurl <- paste(listing_eu[i,3], sep = "") 
-  myfile <- paste0("../../data/cities/", listing_eu$City[i], ".csv")
+  myfile <- paste0("../../data/cities/", listing_eu$City[i], ".csv") #  make csv for every city in listing_eu
   download.file(url = myurl, destfile = myfile)
 }
 
