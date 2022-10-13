@@ -1,6 +1,6 @@
-TEMP = ../../gen/temp
+ANOUTPUT = ../../gen/analysis/output
 
-all: $(TEMP)/regression_output.csv
+all: $(ANOUTPUT)/regression_output.csv
 
-$(TEMP)/regression_output.csv: shiny_app.R
+$(ANOUTPUT)/regression_output.csv: shiny_app.R
 		R --vanilla < shiny_app.R
