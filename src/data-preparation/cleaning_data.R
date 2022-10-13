@@ -3,7 +3,7 @@ library('dplyr')
 library('tidyverse')
 
 # Load the data 
-df <- read.csv("../../data/listings_download.csv", fileEncoding = "UTF-8")
+df <- read.csv("../../gen/data-preparation/input/listings_download.csv", fileEncoding = "UTF-8")
 
 # Filter for variables that are of interest for our pricing tool
 data_filtered <- df[c('id','country','city','host_response_rate','host_is_superhost', 'host_identity_verified','property_type','room_type','accommodates','bathrooms_text','bedrooms',
@@ -83,7 +83,10 @@ data_filtered$review_scores_value[is.na(data_filtered$review_scores_value)] <- 0
 # Approximately 23% of the host response rate has NA value, therefore we will exclude this variable for the analysis 
 data_filtered <- subset(data_filtered, select = -host_response_rate)
 
-# Save dataset
-write.csv(data_filtered, file = "../../data/listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
+# Create directory for saving data
+dir.create('../../gen/data-preparation/output')
+                                        
+# Save dataset into CSV file
+write.csv(data_filtered, file = "../../gen/data-preparation/output/listings_final.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
                                         
