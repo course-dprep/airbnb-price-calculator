@@ -43,14 +43,16 @@ Listed below are the final fourteen variables after cleaning the data and runnin
 To collect the required data a web scraper for [InsideAirbnb](http://insideairbnb.com/get-the-data.html) was built.
 
 ## Relevance
+
 This research provides applicable insights for current and potential Airbnb hosts. This research aims to give Airbnb hosts a tool that can help them make an accurate prediction of their rental properties annual revenue. For current hosts, the tool can also help to see if their current price is up to date. In addition, it can also provide an indication of the price if the host wants to make a change to the Airbnb, for example an extra bed, but also consider the effect of additional reviews. It can be said that this tool created by this research helps the hosts make a good investment or avoid loss. 
 
 ## Price prediction tool
+
 In this research, a multiple linear regression was conducted to examine the effect of different characteristics of an airbnb on its price. These results are displayed in the developed price prediction tool. In this tool, the outcome variable price is multiplied by the average annual bookings per city to get a predicted annual revenue. 
 
 We recommend running the code to see the price prediction tool for yourself. The preview of the app can be seen [here](https://github.com/course-dprep/airbnb-price-calculator/blob/master/src/price-calculator-app/README.md). 
 
-## repository overview
+## Repository overview
 
 ```
 - .github
@@ -64,7 +66,7 @@ We recommend running the code to see the price prediction tool for yourself. The
 - Makefile
 ```
 
-### Dependencies
+## Dependencies
 
 Please follow the installation guide on http://tilburgsciencehub.com/.
 
@@ -98,8 +100,8 @@ install.packages("tidyverse")
 install.packages("readxl")
 ```
 
-### Running the code
-#### Step-by-step
+## Running the code
+### Step-by-step
 To run the code, we recommend following the following instructions:
 1. Fork this repository
 2. Open your command line / terminal and run the following:
@@ -119,14 +121,14 @@ make clean
 
 Note: when the command line/terminal is closed, the website will not be available anymore. 
 
-#### Alternative route
+### Alternative route
 An alternative route to run the code would be: 
 - ../src/data-preparation -> download_merge_data.R
 - ../src/data-preparation -> cleaning_data.R
 - ../src/analysis -> regression_analysis.R
 - ../src/price-calculator-app -> shiny_app.R
 
-#### Running the data collection
+### Running the data collection
 The workflow above does not include the data collection step. The output files of this step is shared in a google drive folder, which is downloaded in the code. However, if you wish to collect the data yourself, you can by running our website scraper. The code for this scraper can be found [here](https://github.com/course-dprep/airbnb-price-calculator/blob/master/src/data-preparation/webscraper_airbnb_python.py): 
 - ../src/data-preparation -> webscraper_airbnb_python.py
 
