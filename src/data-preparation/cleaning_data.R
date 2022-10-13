@@ -5,14 +5,14 @@ library('tidyverse')
 # Load the data 
 df <- read.csv("../../data/listings_download.csv", fileEncoding = "UTF-8")
 
-# Filtering for variables that are of interest for our pricing tool
+# Filter for variables that are of interest for our pricing tool
 data_filtered <- df[c('id','country','city','host_response_rate','host_is_superhost', 'host_identity_verified','property_type','room_type','accommodates','bathrooms_text','bedrooms',
                       'beds', 'price','minimum_nights','maximum_nights','number_of_reviews','review_scores_rating','review_scores_accuracy',
                       'review_scores_cleanliness','review_scores_checkin','review_scores_communication','review_scores_location','review_scores_value',
                       'instant_bookable')]
 
 
-# InsideAirbnb lists all currencies in dollars
+# Inside Airbnb lists all currencies in dollars
 data_filtered$price <- (gsub("\\$|,", "", data_filtered$price))
 # Deleting percentage sign (%) from response rate
 data_filtered$host_response_rate <- (gsub("%", "", data_filtered$host_response_rate))
@@ -31,11 +31,11 @@ for (column in column_list_numeric){
 # Price per person in new column 
 data_filtered$price_per_person <- data_filtered$price/data_filtered$accommodates
 
-# Converting instant bookable into binary
+# Convert instant bookable into binary
 data_filtered <- data_filtered %>% mutate(instant_bookable=ifelse(instant_bookable == "t", 1,
                                                                   ifelse(instant_bookable == "f", 0, NA)))
 
-# Converting host variables into binary 
+# Convert host variables into binary 
 data_filtered <- data_filtered %>% mutate(host_is_superhost=ifelse(host_is_superhost == "t", 1,
                                                                    ifelse(host_is_superhost == "f", 0, NA)))
 data_filtered <- data_filtered %>% mutate(host_identity_verified=ifelse(host_identity_verified == "t", 1,
@@ -58,7 +58,7 @@ data_filtered <- data_filtered %>% filter(price_per_person > 0 & price_per_perso
 data_filtered %>% group_by(city) %>% summarize_at(vars(price), list(name=mean), na.rm=TRUE) 
 
 
-# Checking for the % of NA
+# Checki for the % of NA
 df_missing_values<-as.data.frame(sapply(data_filtered, function(x) sum(is.na(x))))
 
 # Bedrooms NA ≈ 8,5% so for validity we can delete NA values
