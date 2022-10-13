@@ -7,7 +7,7 @@ library(googledrive)
 # Deactivate the authorization for Google drive
 drive_deauth()
 
-# Loading the URLS from Google drive
+# Load the URLS from Google drive
 data_id <-"https://docs.google.com/spreadsheets/d/16pAErs8l2_aAOdhUtmBoY1PIgiPDiQfU/edit?usp=sharing&ouid=117401560079139801880&rtpof=true&sd=true"
 dir.create('../../data') # create directory for storing data file 
 drive_download(as_id(data_id), path = "../../data/Airbnb_listing_urls.xlsx", overwrite = TRUE)
@@ -22,7 +22,7 @@ listing_eu <- airbnb_listing_urls %>% filter(Country %in% countries_in_eu)
 # Create a directory for cities
 dir.create('../../data/cities')
 
-# Subsetting for the specified countries
+# Subset for the specified countries
 listing_eu <- airbnb_listing_urls %>% subset(Country %in% countries_in_eu)
 
 # Download the files
@@ -32,7 +32,7 @@ for (i in 1:nrow(listing_eu)) { # loop through all cities in listing_eu
   download.file(url = myurl, destfile = myfile)
 }
 
-# Setting path to directory with correct file type 
+# Set path to directory with correct file type 
 eu_data_files <- list.files(path="../../data/cities", pattern=".csv")
 
 # Read through the csv files and assign columns city & country
