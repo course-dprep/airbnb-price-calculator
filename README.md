@@ -9,8 +9,9 @@ Investors looking for a second and potentially passive source of income may cons
 _How do the characteristics of an Airbnb affect the asking price to accurately predict the rental properties annual revenue?_ 
 
 ## Research method
+Firstly, to collect the required data, a web-scraper was build for InsideAirbnb. Data for western EU (for a total of 25 cities) are used to conduct the regression analysis. The rationale is based on the fact that when considering airbnb listings by region, Europe results to be the one with the highest number of listings - for a total of 4,840,487 in 2021-. 
 
-The estimating tool will be accessible to everyone in an app. The visitor must fill out specific information about their accommodation. The data used to determine the estimated yearly income are:
+The estimating tool will be accessible to everyone in an app. The visitor must select specific information about their accommodation. The data used to determine the estimated yearly income are:
 
 - average daily price for different listings 
 - monthly average occupancy rate for each city taken into account
