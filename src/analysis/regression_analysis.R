@@ -18,7 +18,10 @@ listings_final <- listings_final %>% mutate(log_price=log(price))
 ggplot(listings_final, aes(log_price)) + geom_histogram(bins=60)
 
 # Multiple linear regression with log_price and all the relevant variables
-lm_listings <- lm(log_price ~ city + host_is_superhost + host_identity_verified + property_type + room_type + accommodates + bathrooms_text + bedrooms + beds + minimum_nights + maximum_nights + number_of_reviews + review_scores_rating + review_scores_accuracy + review_scores_cleanliness + review_scores_checkin + review_scores_communication + review_scores_location + review_scores_value + instant_bookable, data = listings_final)
+lm_listings <- lm(log_price ~ city + host_is_superhost + host_identity_verified + property_type + room_type + accommodates + 
+                  bathrooms_text + bedrooms + beds + minimum_nights + maximum_nights + number_of_reviews + review_scores_rating + 
+                  review_scores_accuracy + review_scores_cleanliness + review_scores_checkin + review_scores_communication + review_scores_location + 
+                  review_scores_value + instant_bookable, data = listings_final)
 summary(lm_listings)
 # 188 observations deleted due to missingness
 
@@ -32,7 +35,9 @@ df_lm_listings <- tidy(lm_listings)
 df_lm_listings_sig <- df_lm_listings %>% filter(p.value <0.05) %>% filter(abs(estimate) > 0.075)
 
 # Make a list with all the variables we want to keep 
-variable_list_listings <- c('city', 'host_is_superhost', 'property_type', 'room_type', 'accommodates', 'bathrooms_text', 'review_scores_rating', 'review_scores_cleanliness', 'review_scores_checkin', 'review_scores_communication', 'review_scores_location', 'review_scores_value', 'instant_bookable')
+variable_list_listings <- c('city', 'host_is_superhost', 'property_type', 'room_type', 'accommodates', 'bathrooms_text', 'review_scores_rating', 
+                            'review_scores_cleanliness', 'review_scores_checkin', 'review_scores_communication', 'review_scores_location', 'review_scores_value', 
+                            'instant_bookable')
 
 # Change the variable list so that it can be used in the regression formula
 variable_list_listings <- paste0('`',variable_list_listings, '`')
@@ -47,8 +52,8 @@ summary(regression_final)
 df_regression_final <- tidy(regression_final)
 
 # Save the regression output and the variable list in a CSV file
-dir.create('../../gen')
-dir.create('../../gen/temp')
+dir.create('../../gen') # creating directory gen to save the files
+dir.create('../../gen/temp') # creating directory gen/temp to save the temporary files
 write.csv(df_regression_final, file = "../../gen/temp/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 write.csv(variable_list_listings, file = "../../gen/temp/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
