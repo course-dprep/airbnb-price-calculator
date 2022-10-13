@@ -6,7 +6,6 @@
 # ### 1) Import the packages
 
 from bs4 import BeautifulSoup
-from time import sleep
 import pandas as pd
 
 
