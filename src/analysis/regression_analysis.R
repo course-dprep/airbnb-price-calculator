@@ -54,15 +54,14 @@ df_regression_final <- tidy(regression_final)
 # creating directory to save the files
 dir.create('../../gen/analysis') 
 dir.create('../../gen/analysis/input')
-dir.create('../../gen/analysis/output')
 
 # save the data to csv files
-write.csv(df_regression_final, file = "../../gen/temp/analysis/input/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
-write.csv(variable_list_listings, file = "../../gen/temp/analysis/input/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+write.csv(df_regression_final, file = "../../gen/analysis/input/regression_output_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
+write.csv(variable_list_listings, file = "../../gen/analysis/input/variable_list_listings.csv", fileEncoding = "UTF-8",row.names=FALSE )
 
 # Save the model to make predictions in the shinyapp later on
 parsed_regression <- parse_model(regression_final)
-write_yaml(parsed_regression, "../../gen/analysis/output/regression_output.yml")
+write_yaml(parsed_regression, "../../gen/analysis/input/regression_output.yml")
 
 
 
