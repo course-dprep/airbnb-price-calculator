@@ -134,25 +134,13 @@ ui <- fluidPage(
 server <- function(input, output, session){
   
   #change the possible inputs based on the answer to the question "Are there reviews available for this listing?"
-  observeEvent(input$ratings_present, { 
-    updateNumericInput(session, input = "clean", value = ifelse(input$ratings_present == "Yes",5, NA ),
-                       min = ifelse(input$ratings_present == "Yes",0, 0 ),
-                       max = ifelse(input$ratings_present == "Yes",5, 0 ))
-    updateNumericInput(session, input = "checkin", value = ifelse(input$ratings_present == "Yes",5, NA ),
-                       min = ifelse(input$ratings_present == "Yes",0, 0 ),
-                       max = ifelse(input$ratings_present == "Yes",5, 0 ))
-    updateNumericInput(session, input = "communication", value = ifelse(input$ratings_present == "Yes",5, NA ),
-                       min = ifelse(input$ratings_present == "Yes",0, 0 ),
-                       max = ifelse(input$ratings_present == "Yes",5, 0 ))
-    updateNumericInput(session, input = "rating", value = ifelse(input$ratings_present == "Yes",5, NA ),
-                       min = ifelse(input$ratings_present == "Yes",0, 0 ),
-                       max = ifelse(input$ratings_present == "Yes",5, 0 ))
-    updateNumericInput(session, input = "location", value = ifelse(input$ratings_present == "Yes",5, NA ),
-                       min = ifelse(input$ratings_present == "Yes",0, 0 ),
-                       max = ifelse(input$ratings_present == "Yes",5, 0 ))
-    updateNumericInput(session, input = "value", value = ifelse(input$ratings_present == "Yes",5, NA ),
-                       min = ifelse(input$ratings_present == "Yes",0, 0 ),
-                       max = ifelse(input$ratings_present == "Yes",5, 0 ))
+  observeEvent(input$ratings_present, {  
+    updateNumericInput(session, input = "clean", value = 5, NA, min = 0,0, max = 5,0, step = 1)
+    updateNumericInput(session, input = "checkin", value = 5, NA, min = 0,0, max = 5,0, step = 1)
+    updateNumericInput(session, input = "communication", value = 5, NA, min = 0,0, max = 5,0, step = 1)
+    updateNumericInput(session, input = "rating", value = 5, NA, min = 0,0, max = 5,0, step = 1)
+    updateNumericInput(session, input = "location", value = 5, NA, min = 0,0, max = 5,0, step = 1)
+    updateNumericInput(session, input = "value", value = 5, NA, min = 0,0, max = 5,0, step = 1)
   })
   
   # run the applicable regression analysis over the data that the user filled out
