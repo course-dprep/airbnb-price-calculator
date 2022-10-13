@@ -21,7 +21,7 @@ library(ggplot2)
 
 # Load data
 ```{r, echo=FALSE}
-all_data <- read_csv("../../data/listings_final.csv")
+all_data <- read_csv("../../gen/data-preparation/output/listings_final.csv")
 ```
 
 
