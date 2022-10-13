@@ -1,5 +1,5 @@
 DATA = ../../data
-EXPLORATION = ../../src/data-preparation
+EXPLORATION = ../../gen/data-preparation/output
 
 all: $(DATA)/listings_download.csv $(DATA)/listings_final.csv $(EXPLORATION)/data_exploration.pdf
 
