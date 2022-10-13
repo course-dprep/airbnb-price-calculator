@@ -7,8 +7,9 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-dir.create('../../src')
-dir.create('../../src/data-preparation')
+dir.create('../../gen')
+dir.create('../../gen/data-preparation')
+dir.create('../../gen/data-preparation/output')
 ```
 
 ```{r, include=FALSE}
