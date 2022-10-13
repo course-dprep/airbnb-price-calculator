@@ -11,8 +11,8 @@ dir.create('../../src')
 dir.create('../../src/data-preparation')
 ```
 
-# Loading packages
 ```{r, include=FALSE}
+# Loading packages
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
