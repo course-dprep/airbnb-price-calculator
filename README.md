@@ -17,7 +17,7 @@ The estimating tool will be accessible to everyone in an app. The visitor must f
 
 The average daily price considered is based on competitors that have similar characteristics in terms of: 
 - demographics (e.g., neighborhood, nearby facilities) 
-- accommodation (e.g., rating, amenities, type of accommodation)
+- accommodation (e.g., ratings (cleanliness, checkin, communication), amenities, type of accommodation)
 
 see the [original variables](https://github.com/course-dprep/team-assignment-team-4/blob/master/src/README.md) used.
 
