@@ -71,7 +71,8 @@ df_creator<-function(variable_list, cities, regression_output, input, regression
   # arrange the price column in such a way that the highest price is on the top
   df<- df %>% arrange(desc(price))
   
-  return(df)}
+  return(df)
+}
 
 
 
@@ -86,7 +87,6 @@ ui <- fluidPage(
   # title of application
   titlePanel("Airbnb price calculator"),
   
-  
   # information about your listing
   sidebarLayout(
     sidebarPanel(
@@ -99,9 +99,7 @@ ui <- fluidPage(
                   selected = property_types[1]),
       
       selectInput(inputId = "superhost", label = "Host is superhost? ", 
-                  choices = list("",
-                                 'Yes'=1,
-                                 'No'=0),
+                  choices = list("",'Yes'=1,'No'=0),
                   selected = 1),
       
       selectInput(inputId = "Room type", label = "Room type", 
@@ -112,9 +110,7 @@ ui <- fluidPage(
       numericInput(inputId = "bath", label = "Number of bathrooms", value = 1, min = 0, max = 50, step = 1),
       
       selectInput(inputId = "bookable", label = "Is the listing instant bookable? ", 
-                  choices = list("",
-                                 'Yes'=1,
-                                 'No'=0),
+                  choices = list("",'Yes'=1,'No'=0),
                   selected = 1),
       
       sliderInput(inputId = "rating", label = "Review score rating", value = 3, min = 0, max = 5, step = 1),
@@ -124,8 +120,7 @@ ui <- fluidPage(
       sliderInput(inputId = "location", label = "Review score location", value = 3, min = 0, max = 5, step = 1),
       sliderInput(inputId = "value", label = "Review score value" , value = 3, min = 0, max = 5, step = 1),
     ),
-    
-    
+   
     mainPanel(
       textOutput("out"),
       textOutput("extra"),
@@ -140,7 +135,6 @@ server <- function(input, output, session){
   
   #change the possible inputs based on the answer to the question "Are there reviews available for this listing?"
   observeEvent(input$ratings_present, { 
-    
     updateNumericInput(session, input = "clean", value = ifelse(input$ratings_present == "Yes",5, NA ),
                        min = ifelse(input$ratings_present == "Yes",0, 0 ),
                        max = ifelse(input$ratings_present == "Yes",5, 0 ))
@@ -163,24 +157,21 @@ server <- function(input, output, session){
   
   # run the applicable regression analysis over the data that the user filled out
   output$out<-renderText({
-    
     df<-df_creator(variable_list[,'x'], cities, regression_output, input, regression_model)
-    
     # define the output
     paste("A reasonable price for one night at this Airbnb would be: €",  round(df[df$city==input$city,'price'],2))
   })
   
   output$out<-renderText({
-    
     df<-df_creator(variable_list[,'x'], cities, regression_output, input, regression_model)
-    
     # define the output
     paste("The predicted price for one night at this Airbnb would be: €",  round(df[df$city==input$city,'price'],2))
   })
   
   
   # add a extra line that introduces the table
-  output$extra<- renderText({paste(" The number of bookings are based on the average number of annual bookings per city. Below you can find what the price and the predicted annual revenue of a comparable Airbnb in other European cities would be: \n ")})
+  output$extra<- renderText({paste(" The number of bookings are based on the average number of annual bookings per city. Below you can find what the 
+                                   price and the predicted annual revenue of a comparable Airbnb in other European cities would be: \n ")})
   
   # making df for annual revenue
   booked_annual = c(68,74,79,54,46,74,55,82,27,83,49,68,62,39,35,34,55,53,79,60,88,68,80) # created a dataframe with the average bookings of the European cities
@@ -192,7 +183,6 @@ server <- function(input, output, session){
   # show a table in which the user can see the advised price of comparable airbnb's in other cities
   output$table <- renderTable({
     df<-df_creator(variable_list[,'x'], cities, regression_output, input, regression_model)
-    
     # extract only the relevant columns of the dataframe that we want to show to the user
     df_to_show<-df%>% select(city, 'price')
     df_to_show<- merge(df_to_show, df_annual, by='city')
