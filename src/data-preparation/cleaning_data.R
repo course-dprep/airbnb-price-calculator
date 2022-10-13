@@ -58,7 +58,7 @@ data_filtered <- data_filtered %>% filter(price_per_person > 0 & price_per_perso
 data_filtered %>% group_by(city) %>% summarize_at(vars(price), list(name=mean), na.rm=TRUE) 
 
 
-# Checki for the % of NA
+# Check for the % of NA
 df_missing_values<-as.data.frame(sapply(data_filtered, function(x) sum(is.na(x))))
 
 # Bedrooms NA ≈ 8,5% so for validity we can delete NA values 
