@@ -1,8 +1,8 @@
-TEMP = ../../gen/temp
+ANINPUT = ../../gen/analysis/input
 
-all: $(TEMP)/regression_output_listings.csv $(TEMP)/variable_list_listings.csv $(TEMP)/regression_output.yml
+all: $(ANINPUT)/regression_output_listings.csv $(ANINPUT)/variable_list_listings.csv $(ANINPUT)/regression_output.yml
 
-$(TEMP)/regression_output_listings.csv $(TEMP)/variable_list_listings.csv $(TEMP)/regression_output.yml: regression_analysis.R
+$(ANINPUT)/regression_output_listings.csv $(ANINPUT)/variable_list_listings.csv $(ANINPUT)/regression_output.yml: regression_analysis.R
 		R --vanilla < regression_analysis.R
 
 
