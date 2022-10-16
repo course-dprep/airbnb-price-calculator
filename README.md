@@ -135,6 +135,7 @@ The workflow above does not include the data collection step. The output file of
 - ../src/data-preparation -> webscraper_airbnb_python.py
 
 ## Authors
+Team 4: 
 - [Cas Rooijackers](https://github.com/casrooij),           e-mail: c.rooijackers@tilburguniversity.edu 
 - [Gennaro Santoro](https://github.com/Ginseng-Effect),     e-mail: g.santoro@tilburguniversity.edu 
 - [Jesper Krauth](https://github.com/jesperkrauth),         e-mail: j.krauth@tilburguniversity.edu 
